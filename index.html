@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Simple Grid</title>
+
+  <meta name="author" content="Andy Stanford-Bluntish">
+  <meta name="description" content="Simple CSS grid implementation for modern browsers.">
+
+  <link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css">
+  <link rel="stylesheet" href="css/grid.css">
+  <style>
+    /* Visual styles only - these are not required for the Grid functionality */
+    body {
+      padding: 1em;
+      background: #eee;
+    }
+    .grid { background: #ddd; }
+    p {
+      background: #fff;
+      margin: 0;
+      padding: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <header role="banner">
+    <h1>Grids</h1>
+  </header>
+
+  <div role="main">
+
+    <!-- Single -->
+    <h2>Full width</h2>
+    <div class="grid">
+      <div class="col-1-1">
+        <p>1</p>
+      </div>
+    </div>
+
+
+    <!-- Golden Ratio -->
+    <h2>Golden Ratio</h2>
+    <div class="grid">
+      <div class="col-golden-wide">
+        <p>Golden Ratio (wide)</p>
+      </div>
+
+      <div class="col-golden-thin">
+        <p>Golden Ratio (thin)</p>
+      </div>
+    </div>
+
+
+    <!-- Halves -->
+    <h2>Halves</h2>
+    <div class="grid">
+      <div class="col-1-2">
+        <p><sup>1</sup>&frasl;<sub>2</sub></p>
+      </div>
+
+      <div class="col-1-2">
+        <p><sup>1</sup>&frasl;<sub>2</sub></p>
+      </div>
+    </div>
+
+
+    <!-- Thirds -->
+    <h2>Thirds</h2>
+    <div class="grid">
+      <div class="col-1-3">
+        <p><sup>1</sup>&frasl;<sub>3</sub></p>
+      </div>
+
+      <div class="col-1-3">
+        <p><sup>1</sup>&frasl;<sub>3</sub></p>
+      </div>
+
+      <div class="col-1-3">
+        <p><sup>1</sup>&frasl;<sub>3</sub></p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="col-1-3">
+        <p><sup>1</sup>&frasl;<sub>3</sub></p>
+      </div>
+
+      <div class="col-2-3">
+        <p><sup>2</sup>&frasl;<sub>3</sub></p>
+      </div>
+    </div>
+
+
+    <!-- Quarters -->
+    <h2>Quarters</h2>
+    <div class="grid">
+      <div class="col-1-4">
+        <p><sup>1</sup>&frasl;<sub>4</sub></p>
+      </div>
+
+      <div class="col-1-4">
+        <p><sup>1</sup>&frasl;<sub>4</sub></p>
+      </div>
+
+      <div class="col-1-4">
+        <p><sup>1</sup>&frasl;<sub>4</sub></p>
+      </div>
+
+      <div class="col-1-4">
+        <p><sup>1</sup>&frasl;<sub>4</sub></p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="col-1-4">
+        <p><sup>1</sup>&frasl;<sub>4</sub></p>
+      </div>
+
+      <div class="col-3-4">
+        <p><sup>3</sup>&frasl;<sub>4</sub></p>
+      </div>
+    </div>
+
+
+    <!-- Fifths -->
+    <h2>Fifths</h2>
+    <div class="grid">
+      <div class="col-1-5">
+        <p><sup>1</sup>&frasl;<sub>5</sub></p>
+      </div>
+
+      <div class="col-1-5">
+        <p><sup>1</sup>&frasl;<sub>5</sub></p>
+      </div>
+
+      <div class="col-1-5">
+        <p><sup>1</sup>&frasl;<sub>5</sub></p>
+      </div>
+
+      <div class="col-1-5">
+        <p><sup>1</sup>&frasl;<sub>5</sub></p>
+      </div>
+
+      <div class="col-1-5">
+        <p><sup>1</sup>&frasl;<sub>5</sub></p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="col-1-5">
+        <p><sup>1</sup>&frasl;<sub>5</sub></p>
+      </div>
+
+      <div class="col-2-5">
+        <p><sup>2</sup>&frasl;<sub>5</sub></p>
+      </div>
+
+      <div class="col-2-5">
+        <p><sup>2</sup>&frasl;<sub>5</sub></p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="col-1-5">
+        <p><sup>1</sup>&frasl;<sub>5</sub></p>
+      </div>
+
+      <div class="col-1-5">
+        <p><sup>1</sup>&frasl;<sub>5</sub></p>
+      </div>
+
+      <div class="col-3-5">
+        <p><sup>3</sup>&frasl;<sub>5</sub></p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="col-1-5">
+        <p><sup>1</sup>&frasl;<sub>5</sub></p>
+      </div>
+
+      <div class="col-4-5">
+        <p><sup>4</sup>&frasl;<sub>5</sub></p>
+      </div>
+    </div>
+
+
+    <!-- Sixths -->
+    <h2>Sixths</h2>
+    <div class="grid">
+      <div class="col-1-6">
+        <p><sup>1</sup>&frasl;<sub>6</sub></p>
+      </div>
+
+      <div class="col-1-6">
+        <p><sup>1</sup>&frasl;<sub>6</sub></p>
+      </div>
+
+      <div class="col-1-6">
+        <p><sup>1</sup>&frasl;<sub>6</sub></p>
+      </div>
+
+      <div class="col-1-6">
+        <p><sup>1</sup>&frasl;<sub>6</sub></p>
+      </div>
+
+      <div class="col-1-6">
+        <p><sup>1</sup>&frasl;<sub>6</sub></p>
+      </div>
+
+      <div class="col-1-6">
+        <p><sup>1</sup>&frasl;<sub>6</sub></p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="col-1-6">
+        <p><sup>1</sup>&frasl;<sub>6</sub></p>
+      </div>
+
+      <div class="col-5-6">
+        <p><sup>5</sup>&frasl;<sub>6</sub></p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
