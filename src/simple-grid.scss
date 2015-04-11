@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Simple Grid
+   ========================================================================== */
+
+/**
+ * box-sizing: border-box
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw
+ * http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+$simple-grid-columns: 12 !default;
+
+$simple-grid-spacer:         1rem !default;
+$simple-grid-padding-top:    0 !default;
+$simple-grid-padding-right:  $simple-grid-spacer !default;
+$simple-grid-padding-bottom: $simple-grid-spacer !default;
+$simple-grid-padding-left:   $simple-grid-spacer !default;
+
+$simple-grid-break-sm: 30em !default; // 480
+$simple-grid-break-md: 40em !default; // 640
+$simple-grid-break-lg: 48em !default; // 768
+
+$simple-grid-sizes: (xs: 0, sm: $simple-grid-break-sm, md: $simple-grid-break-md, lg: $simple-grid-break-lg);
+
+
+/* ==========================================================================
+   Grids
+   ========================================================================== */
+
+/* Calculate Column Grid column widths */
+@function simple-grid-col-width($num-cols) {
+  @return percentage((1 / $simple-grid-columns) * $num-cols);
+}
+
+/* Calculate Block Grid column widths */
+@function simple-grid-block-width($num-blocks) {
+  @return percentage(1 / $num-blocks);
+}
+
+/* Column and Block grid container styles */
+.row,
+[class*="block-"] {
+  display: block;
+  margin-left: ($simple-grid-padding-left * -1); /* negative li padding-left value */
+  margin-right: ($simple-grid-padding-right * -1); /* negative li padding-right value */
+
+  // clearfix
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+
+  /* Column and Block grid column styles */
+  > [class*="col-"],
+  > li {
+    display: block;
+    float: left;
+    padding: $simple-grid-padding-top $simple-grid-padding-right $simple-grid-padding-bottom $simple-grid-padding-left;
+  }
+}
+
+/* Block grid container styles */
+[class*="block-"] {
+  padding: 0;
+  list-style: none;
+}
+
+
+/**
+ * Generate grid selectors and styles for
+ * each break point/column number combination
+ */
+
+@each $name, $size in $simple-grid-sizes {
+  @media only screen and (min-width: $size) {
+    @for $i from 1 through $simple-grid-columns {
+
+      /* Column Grid */
+      .col-#{$name}-#{$i} {
+        @if $i == $simple-grid-columns {
+          float: none;
+          width: auto;
+        } @else {
+          width: simple-grid-col-width($i);
+        }
+      }
+
+      /* Block Grid */
+      .block-#{$name}-#{$i} {
+        > li {
+          width: simple-grid-block-width($i);
+        }
+        > li:nth-of-type(n) {
+          clear: none;
+        }
+        > li:nth-of-type(#{$i}n+1) {
+          clear: both;
+        }
+      }
+
+    }
+  }
+}
+
+
+/**
+ * Remove all padding/gutters
+ * Apply to Column Grid "row" or Block Grid "list" elements
+ */
+
+.compact-grid {
+  margin-left: 0;
+  margin-right: 0;
+
+  & > [class*="col-"],
+  & > li {
+    padding: 0;
+  }
+}
