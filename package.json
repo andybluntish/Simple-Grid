@@ -1,0 +1,23 @@
+{
+  "name": "simple-grid",
+  "version": "1.0.0",
+  "description": "A simple fluid grid implementation for modern browsers.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andybluntish/simple-grid.git"
+  },
+  "keywords": [
+    "css",
+    "styles",
+    "scss",
+    "grid",
+    "responsive"
+  ],
+  "author": "Andy Stanford-Bluntish <andy@bluntish.net>",
+  "license": "MIT",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/andybluntish/simple-grid/issues"
+  },
+  "homepage": "https://github.com/andybluntish/simple-grid"
+}
