@@ -19,51 +19,120 @@ html {
 }
 
 
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+$simple-grid-columns: 12 !default;
+
+$simple-grid-spacer:         1rem !default;
+$simple-grid-padding-top:    0 !default;
+$simple-grid-padding-right:  $simple-grid-spacer !default;
+$simple-grid-padding-bottom: $simple-grid-spacer !default;
+$simple-grid-padding-left:   $simple-grid-spacer !default;
+
+$simple-grid-break-sm: 30em !default; // 480
+$simple-grid-break-md: 40em !default; // 640
+$simple-grid-break-lg: 48em !default; // 768
+
+$simple-grid-sizes: (xs: 0, sm: $simple-grid-break-sm, md: $simple-grid-break-md, lg: $simple-grid-break-lg);
+
+
+/* ==========================================================================
+   Grids
+   ========================================================================== */
+
+/* Calculate Column Grid column widths */
+@function simple-grid-col-width($num-cols) {
+  @return percentage((1 / $simple-grid-columns) * $num-cols);
+}
+
+/* Calculate Block Grid column widths */
+@function simple-grid-block-width($num-blocks) {
+  @return percentage(1 / $num-blocks);
+}
+
+/* Column and Block grid container styles */
+.row,
+[class*="block-"] {
+  display: block;
+  margin-left: ($simple-grid-padding-left * -1); /* negative li padding-left value */
+  margin-right: ($simple-grid-padding-right * -1); /* negative li padding-right value */
+
+  // clearfix
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+
+  /* Column and Block grid column styles */
+  > [class*="col-"],
+  > li {
+    display: block;
+    float: left;
+    padding: $simple-grid-padding-top $simple-grid-padding-right $simple-grid-padding-bottom $simple-grid-padding-left;
+  }
+}
+
+/* Block grid container styles */
+[class*="block-"] {
+  padding: 0;
+  list-style: none;
+}
+
+
 /**
- * Grids
- * A simple fluid grid implementation, inspired by http://css-tricks.com/dont-overthink-it-grids
- * Browser Support is limited to IE8+, and modern browsers.
+ * Generate grid selectors and styles for
+ * each break point/column number combination
  */
 
-/* Main Grid */
-.grid { margin: 0 0 1.6em 0; }
+@each $name, $size in $simple-grid-sizes {
+  @media only screen and (min-width: $size) {
+    @for $i from 1 through $simple-grid-columns {
 
-/* Padded Grid */
-.grid-pad { padding: 1.6em 1.6em 1.6em 0; }
+      /* Column Grid */
+      .col-#{$name}-#{$i} {
+        @if $i == $simple-grid-columns {
+          float: none;
+          width: auto;
+        } @else {
+          width: simple-grid-col-width($i);
+        }
+      }
 
-/* Clearfix Grid and Module elements */
-.grid:before, .grid:after,
-.module:before, .module:after {
-  content: " ";
-  display: table;
+      /* Block Grid */
+      .block-#{$name}-#{$i} {
+        > li {
+          width: simple-grid-block-width($i);
+        }
+        > li:nth-of-type(n) {
+          clear: none;
+        }
+        > li:nth-of-type(#{$i}n+1) {
+          clear: both;
+        }
+      }
+
+    }
+  }
 }
-.grid:after, .module:after { clear: both; }
 
-/* Columns */
-[class^='col-'] {
-  float: left;
-  padding-left: 1.6em;
+
+/**
+ * Remove all padding/gutters
+ * Apply to Column Grid "row" or Block Grid "list" elements
+ */
+
+.compact-grid {
+  margin-left: 0;
+  margin-right: 0;
+
+  & > [class*="col-"],
+  & > li {
+    padding: 0;
+  }
 }
-[class^='col-']:first-child { padding-left: 0; }
-.grid-pad > [class^='col-']:first-child { padding-left: 1.6em; }
-
-.col-1-1 { float: none; }
-
-.col-1-2 { width: 50%; }
-
-.col-1-3 { width: 33.334%; }
-.col-2-3 { width: 66.667%; }
-
-.col-1-4 { width: 25%; }
-.col-3-4 { width: 75%; }
-
-.col-1-5 { width: 20%; }
-.col-2-5 { width: 40%; }
-.col-3-5 { width: 60%; }
-.col-4-5 { width: 80%; }
-
-.col-1-6 { width: 16.667%; }
-.col-5-6 { width: 83.334%; }
-
-.col-golden-wide { width: 61.8%; }
-.col-golden-thin { width: 38.2%; }
