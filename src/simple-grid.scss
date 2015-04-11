@@ -74,6 +74,7 @@ $simple-grid-sizes: (xs: 0, sm: $simple-grid-break-sm, md: $simple-grid-break-md
   > li {
     display: block;
     float: left;
+    width: 100%;
     padding: $simple-grid-padding-top $simple-grid-padding-right $simple-grid-padding-bottom $simple-grid-padding-left;
   }
 }
@@ -95,12 +96,14 @@ $simple-grid-sizes: (xs: 0, sm: $simple-grid-break-sm, md: $simple-grid-break-md
     @for $i from 1 through $simple-grid-columns {
 
       /* Column Grid */
-      .col-#{$name}-#{$i} {
-        @if $i == $simple-grid-columns {
-          float: none;
-          width: auto;
-        } @else {
-          width: simple-grid-col-width($i);
+      .row {
+        .col-#{$name}-#{$i} {
+          @if $i == $simple-grid-columns {
+            float: none;
+            width: auto;
+          } @else {
+            width: simple-grid-col-width($i);
+          }
         }
       }
 
