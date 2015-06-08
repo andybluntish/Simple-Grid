@@ -19,5 +19,6 @@
   "bugs": {
     "url": "https://github.com/andybluntish/simple-grids/issues"
   },
-  "homepage": "https://github.com/andybluntish/simple-grids"
+  "homepage": "https://github.com/andybluntish/simple-grids",
+  "main": "src/simple-grids.scss"
 }
