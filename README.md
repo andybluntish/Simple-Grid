@@ -1,4 +1,4 @@
-# Simple Grid
+# Simple Grids
 
 A simple, responsive, fluid grid implementation.
 
@@ -6,7 +6,7 @@ Browser Support is limited to IE9+, and modern browsers, since it relies on `box
 
 ## Grid types
 
-Simple Grid comes in two forms, Column and Block. By default, both grid types are based on a 12-column layout, but this can be changed by overriding the `$simple-grid-columns` variable.
+Simple Grids comes in two forms, Column and Block. By default, both grid types are based on a 12-column layout, but this can be changed by overriding the `$simple-grids-columns` variable.
 
 ### Column Grids
 

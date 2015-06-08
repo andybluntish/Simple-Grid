@@ -1,12 +1,12 @@
 {
-  "name": "simple-grid",
+  "name": "simple-grids",
   "version": "1.0.1",
-  "homepage": "https://github.com/andybluntish/Simple-Grid",
+  "homepage": "https://github.com/andybluntish/simple-grids",
   "authors": [
     "Andy Bluntish <andy@bluntish.net>"
   ],
   "description": "A simple fluid grid implementation for modern browsers.",
-  "main": "src/simple-grid.scss",
+  "main": "src/simple-grids.scss",
   "keywords": [
     "css",
     "styles",

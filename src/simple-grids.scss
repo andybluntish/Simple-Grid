@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Simple Grid
+   Simple Grids
    ========================================================================== */
 
 /**
@@ -23,19 +23,19 @@ html {
    Variables
    ========================================================================== */
 
-$simple-grid-columns: 12 !default;
+$simple-grids-columns: 12 !default;
 
-$simple-grid-spacer:         1rem !default;
-$simple-grid-padding-top:    0 !default;
-$simple-grid-padding-right:  $simple-grid-spacer !default;
-$simple-grid-padding-bottom: $simple-grid-spacer !default;
-$simple-grid-padding-left:   $simple-grid-spacer !default;
+$simple-grids-spacer:         1rem !default;
+$simple-grids-padding-top:    0 !default;
+$simple-grids-padding-right:  $simple-grids-spacer !default;
+$simple-grids-padding-bottom: $simple-grids-spacer !default;
+$simple-grids-padding-left:   $simple-grids-spacer !default;
 
-$simple-grid-break-sm: 30em !default; // 480
-$simple-grid-break-md: 40em !default; // 640
-$simple-grid-break-lg: 48em !default; // 768
+$simple-grids-break-sm: 30em !default; // 480
+$simple-grids-break-md: 40em !default; // 640
+$simple-grids-break-lg: 48em !default; // 768
 
-$simple-grid-sizes: (xs: 0, sm: $simple-grid-break-sm, md: $simple-grid-break-md, lg: $simple-grid-break-lg);
+$simple-grids-sizes: (xs: 0, sm: $simple-grids-break-sm, md: $simple-grids-break-md, lg: $simple-grids-break-lg);
 
 
 /* ==========================================================================
@@ -43,12 +43,12 @@ $simple-grid-sizes: (xs: 0, sm: $simple-grid-break-sm, md: $simple-grid-break-md
    ========================================================================== */
 
 /* Calculate Column Grid column widths */
-@function simple-grid-col-grid-width($num-cols) {
-  @return percentage((1 / $simple-grid-columns) * $num-cols);
+@function simple-grids-col-grid-width($num-cols) {
+  @return percentage((1 / $simple-grids-columns) * $num-cols);
 }
 
 /* Calculate Block Grid column widths */
-@function simple-grid-block-grid-width($num-blocks) {
+@function simple-grids-block-grid-width($num-blocks) {
   @return percentage(1 / $num-blocks);
 }
 
@@ -56,8 +56,8 @@ $simple-grid-sizes: (xs: 0, sm: $simple-grid-break-sm, md: $simple-grid-break-md
 .col-grid-row,
 [class*="block-grid-"] {
   display: block;
-  margin-left: ($simple-grid-padding-left * -1); /* negative li padding-left value */
-  margin-right: ($simple-grid-padding-right * -1); /* negative li padding-right value */
+  margin-left: ($simple-grids-padding-left * -1); /* negative li padding-left value */
+  margin-right: ($simple-grids-padding-right * -1); /* negative li padding-right value */
 
   // clearfix
   &:before,
@@ -75,7 +75,7 @@ $simple-grid-sizes: (xs: 0, sm: $simple-grid-break-sm, md: $simple-grid-break-md
     display: block;
     float: left;
     width: 100%;
-    padding: $simple-grid-padding-top $simple-grid-padding-right $simple-grid-padding-bottom $simple-grid-padding-left;
+    padding: $simple-grids-padding-top $simple-grids-padding-right $simple-grids-padding-bottom $simple-grids-padding-left;
   }
 }
 
@@ -91,18 +91,18 @@ $simple-grid-sizes: (xs: 0, sm: $simple-grid-break-sm, md: $simple-grid-break-md
  * each break point/column number combination
  */
 
-@each $name, $size in $simple-grid-sizes {
+@each $name, $size in $simple-grids-sizes {
   @media only screen and (min-width: $size) {
-    @for $i from 1 through $simple-grid-columns {
+    @for $i from 1 through $simple-grids-columns {
 
       /* Column Grid */
       .col-grid-row {
         .col-grid-#{$name}-#{$i} {
-          @if $i == $simple-grid-columns {
+          @if $i == $simple-grids-columns {
             float: none;
             width: auto;
           } @else {
-            width: simple-grid-col-grid-width($i);
+            width: simple-grids-col-grid-width($i);
           }
         }
       }
@@ -110,7 +110,7 @@ $simple-grid-sizes: (xs: 0, sm: $simple-grid-break-sm, md: $simple-grid-break-md
       /* Block Grid */
       .block-grid-#{$name}-#{$i} {
         > li {
-          width: simple-grid-block-grid-width($i);
+          width: simple-grids-block-grid-width($i);
         }
         > li:nth-of-type(n) {
           clear: none;

@@ -1,10 +1,10 @@
 {
-  "name": "simple-grid",
+  "name": "simple-grids",
   "version": "1.0.1",
   "description": "A simple fluid grid implementation for modern browsers.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/andybluntish/simple-grid.git"
+    "url": "https://github.com/andybluntish/simple-grids.git"
   },
   "keywords": [
     "css",
@@ -17,7 +17,7 @@
   "license": "MIT",
   "private": true,
   "bugs": {
-    "url": "https://github.com/andybluntish/simple-grid/issues"
+    "url": "https://github.com/andybluntish/simple-grids/issues"
   },
-  "homepage": "https://github.com/andybluntish/simple-grid"
+  "homepage": "https://github.com/andybluntish/simple-grids"
 }
