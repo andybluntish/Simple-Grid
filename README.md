@@ -1,4 +1,4 @@
-# Simple Grid
+# Simple Grids
 
 A simple, responsive, fluid grid implementation.
 
@@ -6,7 +6,7 @@ Browser Support is limited to IE9+, and modern browsers, since it relies on `box
 
 ## Grid types
 
-Simple Grid comes in two forms, Column and Block. By default, both grid types are based on a 12-column layout, but this can be changed by overriding the `$simple-grid-columns` variable.
+Simple Grids comes in two forms, Column and Block. By default, both grid types are based on a 12-column layout, but this can be changed by overriding the `$simple-grids-columns` variable.
 
 ### Column Grids
 
@@ -16,9 +16,9 @@ Column grids are made up of rows and columns. Each column has one or more classe
 
 For example, a two-column layout that is applied on medium sized screens:
 
-    <div class="row">
-      <div class="col-md-6">50%</div>
-      <div class="col-md-6">50%</div>
+    <div class="col-grid-row">
+      <div class="col-grid-md-6">50%</div>
+      <div class="col-grid-md-6">50%</div>
     </div>
 
 
@@ -30,7 +30,7 @@ Block grids are based on simple HTML lists (`ul` and `ol`). Each grid has one or
 
 For example, a two-column layout that is applied on medium sized screens:
 
-    <ul class="block-md-2">
+    <ul class="block-grid-md-2">
       <li>50%</li>
       <li>50%</li>
     </ul>
@@ -40,17 +40,17 @@ Block grids are ideal for creating a grid from items that are already marked up 
 
 ### Compact Grids
 
-By default, both Column and Block grids contain padding in each cell. This value can be updated by globally overriding the SASS variables. Alternatively, you can add the `.compact` class to the `.row` or `.block-` elements to remove all padding in child cells.
+By default, both Column and Block grids contain padding in each cell. This value can be updated by globally overriding the SASS variables. Alternatively, you can add the `.compact` class to the `.col-grid-row` or `.block-grid-*` elements to remove all padding in child cells.
 
 
 ## Media Queries
 
 Grid classes exist for the following break points. Breakpoint values can be overridden using SASS variables.
 
-  * `xs` is applied on screens > 0em (`.col-xs-1`, `.block-xs-2`)
-  * `sm` is applied on screens > 30em (`.col-sm-1`, `.block-sm-2`)
-  * `md` is applied on screens > 40em (`.col-md-1`, `.block-md-2`)
-  * `lg` is applied on screens > 48em (`.col-lg-1`, `.block-lg-2`)
+  * `xs` is applied on screens > 0em (`.col-grid-xs-1`, `.block-grid-xs-2`)
+  * `sm` is applied on screens > 30em (`.col-grid-sm-1`, `.block-grid-sm-2`)
+  * `md` is applied on screens > 40em (`.col-grid-md-1`, `.block-grid-md-2`)
+  * `lg` is applied on screens > 48em (`.col-grid-lg-1`, `.block-grid-lg-2`)
 
 
 ## Example
